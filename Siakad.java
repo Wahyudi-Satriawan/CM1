@@ -20,21 +20,28 @@ public class Siakad {
             pilihan = scanner.nextInt();
             scanner.nextLine(); 
             switch (pilihan) {
-                case 1: for (Mahasiswa m : daftarMahasiswa) {
-                            m.tampilMahasiswa();
-                        }
+                case 1: 
+                    System.out.println("\nDaftar Mahasiswa:");
+                    for (Mahasiswa m : daftarMahasiswa) {
+                    m.tampilMahasiswa();
+                    }
                     break;
-                case 2: for (MataKuliah mk : daftarMK) {
-                            mk.tampilMataKuliah();
-                        }
+                case 2: 
+                    System.out.println("\nDaftar Mata Kuliah:");
+                    for (MataKuliah mk : daftarMK) {
+                    mk.tampilMataKuliah();
+                    }
                     break;
-                case 3: tampilData();
+                case 3: 
+                    tampilData();
                     break;
-                case 4: urutkanData(); tampilData();
+                case 4: 
+                    urutkanData(); tampilData();
                     break;
-                case 5: System.out.print("Masukkan NIM: ");
-                        String cari = scanner.nextLine();
-                        cariMahasiswa(cari);
+                case 5: 
+                    System.out.print("Masukkan NIM mahasiswa yang dicari: ");
+                    String cari = scanner.nextLine();
+                    cariMahasiswa(cari);
                     break;
                 case 0:
                     System.out.println("Keluar dari program.");
@@ -63,16 +70,11 @@ public class Siakad {
     }
 
     public static void tampilData() {
-        System.out.println("\nNIM     Nama             Kode  Mata Kuliah     Tugas UTS UAS NilAkhir");
+        System.out.println("\nData Penilaian:");
         for (Penilaian p : data) {
-            System.out.println(p.mahasiswa.nim + " " +
-                            p.mahasiswa.nama + " " +
-                            p.mataKuliah.kodeMK + " " +
-                            p.mataKuliah.namaMK + " " +
-                            p.nilaiTugas + " " +
-                            p.nilaiUTS + " " +
-                            p.nilaiUAS + " " +
-                            p.nilaiAkhir);
+            System.out.println(p.mahasiswa.nama + " | " + 
+                               p.mataKuliah.namaMK + " | Nilai Akhir: " + 
+                               p.nilaiAkhir);
         }
     }
 
@@ -92,18 +94,11 @@ public class Siakad {
         boolean ditemukan = false;
         for (Penilaian p : data) {
             if (p.mahasiswa.nim.equals(nim)) {
-                if (!ditemukan) {
-                    System.out.println("\nNIM     Nama             Kode  Mata Kuliah     Tugas UTS UAS NilAkhir");
-                    ditemukan = true;
-                }
-                System.out.println(p.mahasiswa.nim + " " +
-                                   p.mahasiswa.nama + " " +
-                                   p.mataKuliah.kodeMK + " " +
-                                   p.mataKuliah.namaMK + " " +
-                                   p.nilaiTugas + " " +
-                                   p.nilaiUTS + " " +
-                                   p.nilaiUAS + " " +
-                                   p.nilaiAkhir);
+                ditemukan = true;
+                System.out.println("Mahasiswa Ditemukan: NIM: " + 
+                                    p.mahasiswa.nim + " | Nama: " +
+                                    p.mahasiswa.nama + " | Prodi: " +
+                                    p.mahasiswa.prodi);
             }
         }
         if (!ditemukan) {
