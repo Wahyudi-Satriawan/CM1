@@ -1,19 +1,18 @@
 class Penilaian {
     Mahasiswa mahasiswa;
-    MataKuliah matkul;
-    int tugas, uts, uas;
-    double nilaiAkhir;
+    MataKuliah mataKuliah;
+    double nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir;
 
-    Penilaian(Mahasiswa mhs, MataKuliah mk, int tugas, int uts, int uas) {
+    public Penilaian(Mahasiswa mhs, MataKuliah mk, double tugas, double uts, double uas) {
         this.mahasiswa = mhs;
-        this.matkul = mk;
-        this.tugas = tugas;
-        this.uts = uts;
-        this.uas = uas;
+        this.mataKuliah = mk;
+        this.nilaiTugas = tugas;
+        this.nilaiUTS = uts;
+        this.nilaiUAS = uas;
         hitungNilaiAkhir();
     }
 
-    void hitungNilaiAkhir() {
-        nilaiAkhir = (tugas * 0.3) + (uts * 0.3) + (uas * 0.4);
+    public void hitungNilaiAkhir() {
+        nilaiAkhir = (nilaiTugas * 0.3) + (nilaiUTS * 0.3) + (nilaiUAS * 0.4);
     }
 }
